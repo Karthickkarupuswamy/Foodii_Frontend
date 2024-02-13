@@ -34,7 +34,7 @@ const QuickSearchItem = () => {
       {meals.map((item) => {
         return (
           <div data-aos="fade-up"
-          data-aos-duration="3000"
+          data-aos-duration="1000"
             className="col-xs-12 col-md-5 col-lg-3 shadow-lg p-2 mb-5  rounded"
             onClick={() => handleNavagateQs(item.meal_type)}
           >
