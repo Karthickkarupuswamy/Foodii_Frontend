@@ -42,12 +42,12 @@ const Detials1 = () => {
   useEffect(() => {
     // To check the id in insect
     axios
-      .get(`http://localhost:7000/getrestbyid/${Idqs}`)
+      .get(`https://foodii-backend.onrender.com/getrestbyid/${Idqs}`)
       .then((res) => setRestaurant(res.data))
       .catch(() => console.log("ERROR"));
     console.log(restaurant);
     axios
-      .get(`http://localhost:7000/getmenu/${restaurant.name}`)
+      .get(`https://foodii-backend.onrender.com/getmenu/${restaurant.name}`)
       .then((res) => setMenu(res.data));
     console.log(menu);
   }, [restaurant.name]);
@@ -55,7 +55,7 @@ const Detials1 = () => {
   const gallaryOpen = () => {
     setGallaryIsOpen(true);
     axios
-      .get(`http://localhost:7000/getmenu/${restaurant.name}`)
+      .get(`https://foodii-backend.onrender.com/getmenu/${restaurant.name}`)
       .then((res) => setMenu(res.data));
   };
   const handleDecrement = (selectItem, index) => {

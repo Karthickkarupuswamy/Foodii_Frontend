@@ -10,7 +10,7 @@ const QuickSearchItem = () => {
 
   const fetchMealsType = () => {
     axios
-      .get("http://localhost:7000/getallmeal")
+      .get("https://foodii-backend.onrender.com/getallmeal")
       .then((res) => setMeals(res.data))
       .catch((err) => console.log(err));
   };

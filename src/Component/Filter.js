@@ -24,7 +24,7 @@ const Filter = () => {
   const location_id = Number(sessionStorage.getItem("locationID"));
   useEffect(() => {
     axios
-      .get("http://localhost:7000/getallloc")
+      .get("https://foodii-backend.onrender.com/getallloc")
       .then((res) => setLocationData(res.data))
       .catch((err) => console.log(err));
 
@@ -37,7 +37,7 @@ const Filter = () => {
       hcost: hcost,
     };
     axios
-      .post("http://localhost:7000/api/query", filterObj)
+      .post("https://foodii-backend.onrender.com/api/query", filterObj)
       .then((res) => setRestaurants(res.data))
       .catch((err) => console.log(err));
   }, [location, sort, cusineid, lcost, hcost, location_id, mealtype_id]);
@@ -52,7 +52,7 @@ const Filter = () => {
       hcost: hcost,
     };
     axios
-      .post("http://localhost:7000/api/query", filterObj)
+      .post("https://foodii-backend.onrender.com/api/query", filterObj)
       .then((res) => setRestaurants(res.data))
       .catch((err) => console.log(err));
   };
@@ -67,7 +67,7 @@ const Filter = () => {
       hcost: hcost,
     };
     axios
-      .post("http://localhost:7000/api/query", filterObj)
+      .post("https://foodii-backend.onrender.com/api/query", filterObj)
       .then((res) => setRestaurants(res.data))
       .catch((err) => console.log(err));
   };

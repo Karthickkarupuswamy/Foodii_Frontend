@@ -12,13 +12,13 @@ const Wallpaper = () => {
 
   const fetchLocation = () => {
     axios
-      .get("http://localhost:7000/getallloc")
+      .get("https://foodii-backend.onrender.com/getallloc")
       .then((res) => setLocation(res.data))
       .catch((err) => console.log(err));
   };
   const fetchRest = () => {
     axios
-      .get(`http://localhost:7000/getAllRestaruents`)
+      .get(`https://foodii-backend.onrender.com/getAllRestaruents`)
       .then((res) => setRest(res.data));
   };
   useEffect(() => {
@@ -32,7 +32,7 @@ const Wallpaper = () => {
     sessionStorage.setItem("LocationId", locationId);
 
     axios
-      .get(`http://localhost:7000/getall/${Number(locationId)}`)
+      .get(`https://foodii-backend.onrender.com/getall/${Number(locationId)}`)
       .then((res) => {
         setLocationId(res.data);
         console.log(locationid);
