@@ -5,6 +5,7 @@ import Modal from "react-modal";
 // import GoogleLogin from "react-google-login";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 const customStyles = {
   content: {
@@ -125,6 +126,10 @@ const Header = () => {
             <GoogleLogin
               onSuccess={(credentialResponse) => {
                 console.log(credentialResponse);
+
+                const result = jwtDecode(credentialResponse.credential);
+                console.log("result", result);
+
               }}
               onError={() => {
                 console.log("Login Failed");
