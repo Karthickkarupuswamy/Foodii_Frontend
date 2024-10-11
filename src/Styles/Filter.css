@@ -1,21 +1,71 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 .nav {
     position: relative;
     width: 100%;
     height: 20%;
-    background-color: red;
+    background-color: #FE0000;
 }
 
 .login {
-    position: absolute;
-    right: 0px;
-    margin: 20px;
+    margin: 20px 10px 0px 0px;
+    gap: 10px;
+    display: flex;
+}
+
+.login-search input {
+    width: 200px;
+    height: 40px;
+    padding-left: 10px;
+}
+
+.login-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px 0px 20px 0px;
+}
+
+.login-button {
+    width: 70px;
+    height: 40px;
+    background-color: #0D92F4;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
     color: #FFFFFF;
-    font-size: 1.3rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-button-form {
+    width: 70px;
+    height: 40px;
+    background-color: #0D92F4;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.cancel-button {
+    width: 70px;
+    height: 40px;
+    background-color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 5px;
 }
 
 .logos {
@@ -26,8 +76,9 @@ body {
     border-radius: 50%;
     margin: 10px;
     margin-left: 20px;
-    padding: 10px;
-    font-size: x-large;
+    font-family: 'Poppins', sans-serif;
+    padding: 9px 0px 0px 18px;
+    font-size: 28px;
     font-weight: 800;
     color: #FE0000;
 }
@@ -96,19 +147,14 @@ body {
         width: 100%;
     }
 }
-.detialsimg{
+
+.detialsimg {
     width: 80%;
     height: 600px;
     margin: 30px 10%;
     border-radius: 10px;
 }
-.loginbtn:hover{
-    z-index: 1;
-    background-color: transparent;
-    background: linear-gradient(
-        90deg, #fd923f,
-        #00a19d, #0c87b7,
-        #cb49ff, #ff6666,
-        #f9d923);
-        animation: glow 13s linear;
+
+.ggg{
+    padding-right: 10px;
 }

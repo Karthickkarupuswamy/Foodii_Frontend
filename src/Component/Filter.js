@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../Styles/Filter.css";
-
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -134,7 +133,6 @@ const Filter = () => {
             {locationData.map((loc, index) => {
               return (
                 <option key={index} id={loc.city} value={`${loc.location_id}`}>
-                  {" "}
                   {`${loc.name}, ${loc.city}`}
                 </option>
               );
@@ -174,6 +172,7 @@ const Filter = () => {
             type="radio"
             name="cost"
             onChange={() => handleCost(1000, 1500)}
+            className="ggg"
           />
           $1000 to $1500
           <br />

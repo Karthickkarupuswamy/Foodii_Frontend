@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../Styles/Filter.css";
-
 import Modal from "react-modal";
-// import GoogleLogin from "react-google-login";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+// import GoogleLogin from "react-google-login";
 
 const customStyles = {
   content: {
@@ -14,6 +13,7 @@ const customStyles = {
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
+    height: "350px",
     transform: "translate(-50%, -50%)",
     border: "solid 1px #A9A9A9",
     borderRadius: "15px 65px",
@@ -25,21 +25,7 @@ const customStyles = {
 const Header = () => {
   let subtitle;
   const navigate = useNavigate();
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
+  const [modalIsOpen, setIsOpen] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState("");
   const [display, setDisplay] = useState("none");
 
@@ -49,16 +35,9 @@ const Header = () => {
   }, []);
 
   const setAttributes = (path) => {
-    let bg, displayValue;
-    if (path === "/") {
-      bg = "transparent";
-      displayValue = "none";
-    } else {
-      bg = "#ff0000";
-      displayValue = "inline-block";
-    }
-    setBackgroundColor(bg);
-    setDisplay(displayValue);
+    const isHome = path === "/";
+    setBackgroundColor(isHome ? "#000000" : "#ff0000");
+    setDisplay(isHome ? "none" : "inline-block");
   };
 
   const handleNavigate = () => {
@@ -66,70 +45,71 @@ const Header = () => {
     window.location.reload();
   };
 
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
   return (
     <div className="nav" style={{ background: backgroundColor }}>
       <div
         className="logos"
         style={{ display: display }}
-        onClick={() => handleNavigate()}
+        onClick={handleNavigate}
       >
-        K:)
+        K
       </div>
-      <div className="login">
-        <button
-          className="btn btn-light loginbtn"
-          style={{ transition: "all 1s" }}
-          onClick={openModal}
-        >
-          Login
-        </button>{" "}
-        <span>
+      <div className="login ms-auto">
+        <div>
+          <button className="login-button" onClick={openModal}>
+            Log in
+          </button>
+        </div>
+        <div className="login-search">
           <input type="text" placeholder="Create an account" />
-        </span>
+        </div>
       </div>
       <Modal
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
+        onAfterOpen={() => {
+          subtitle.style.color = "#f00";
+        }}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Example Modal"
+        contentLabel="Login Modal"
       >
         <h2 className="lgfont" ref={(_subtitle) => (subtitle = _subtitle)}>
           Login
-        </h2>{" "}
+        </h2>
         <br />
         <form>
           <input
             type="email"
             className="form-control"
             aria-describedby="emailHelp"
-            placeholder="Enter your Eamil"
+            placeholder="Enter your Email"
           />
           <br />
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             placeholder="Enter your Password"
           />
-          <br />
-          <button className="btn btn-outline-primary">Login</button>
-          <br />
-          <br />
-          <button className="btn btn-outline-danger" onClick={closeModal}>
-            Cancel
-          </button>
-          <br />
-          <br />
+          <div className="login-container">
+            <div>
+              <button className="login-button-form">Login</button>
+            </div>
+            <div>
+              <button className="cancel-button" onClick={closeModal}>
+                Cancel
+              </button>
+            </div>
+          </div>
         </form>
         <div>
-          <GoogleOAuthProvider clientId="17140268731-tsfsqm509q1fj2anf087h81uhrkiagsc.apps.googleusercontent.com">
+          <GoogleOAuthProvider clientId="YOUR_CLIENT_ID">
             <GoogleLogin
               onSuccess={(credentialResponse) => {
-                console.log(credentialResponse);
-
                 const result = jwtDecode(credentialResponse.credential);
                 console.log("result", result);
-
               }}
               onError={() => {
                 console.log("Login Failed");
@@ -141,4 +121,5 @@ const Header = () => {
     </div>
   );
 };
+
 export default Header;

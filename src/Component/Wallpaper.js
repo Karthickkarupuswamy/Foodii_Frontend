@@ -91,9 +91,9 @@ const Wallpaper = () => {
       />
       <div className="content">
         <div className="logo" onClick={handleClick}>
-          K:)
+          K
         </div>
-        <h2 className="h2S text-light">
+        <h2 className="h2 text-light">
           Find the best restaurants, Cafes, and Bars
         </h2>
         <div>

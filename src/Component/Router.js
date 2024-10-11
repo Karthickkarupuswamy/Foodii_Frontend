@@ -6,8 +6,7 @@ import Header from "./Header";
 import Detials1 from "./Detials1";
 
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
+import 'aos/dist/aos.css';
 AOS.init();
 
 const Router = () => {

@@ -1,12 +1,7 @@
 body{
     margin: 0%;
+    font-family: 'Poppins', sans-serif;
 }
-/* :root{
-    --red:#FE0000;
-    --white:#FFFFFF;
-    --silver:#F5F5F5;
-    --black:#000000;   
-} */
 .content{
     position: absolute;
     top: 80px;
@@ -21,7 +16,8 @@ body{
     border-radius: 50%;
     margin: auto;
     padding: 10px;
-    font-size: x-large;
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
     font-weight: 800;
     color: #FE0000;
     cursor: pointer;
@@ -42,7 +38,7 @@ body{
     border-radius: 3px;
     background-color: #FFFFFF;
     font-weight: 19px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: black;
     margin: 2% 52%;
     padding: 8px;
@@ -51,5 +47,6 @@ body{
 
 .lgfont{
     color: coral;
+    font-family: 'Poppins', sans-serif;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
