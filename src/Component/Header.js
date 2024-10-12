@@ -58,14 +58,9 @@ const Header = () => {
         K
       </div>
       <div className="login ms-auto">
-        <div>
-          <button className="login-button" onClick={openModal}>
-            Log in
-          </button>
-        </div>
-        <div className="login-search">
-          <input type="text" placeholder="Create an account" />
-        </div>
+        <button className="login-button" onClick={openModal}>
+          Log in
+        </button>
       </div>
       <Modal
         isOpen={modalIsOpen}

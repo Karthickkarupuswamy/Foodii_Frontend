@@ -98,9 +98,9 @@ const Wallpaper = () => {
         </h2>
         <div>
           <span>
-            <select onChange={handleLocationChange}>
+            <select onChange={handleLocationChange} className="dropdown">
               <option selected disabled>
-                --Select the City--
+                Select the City
               </option>
               {location.map((loc, index) => {
                 return (
@@ -116,8 +116,7 @@ const Wallpaper = () => {
               })}
             </select>
           </span>
-          <span className="Searchbox">
-            &nbsp; &nbsp; &nbsp;
+          <span className="Searchbox mx-3">
             <input
               type="text"
               placeholder="Search for restaurant"

@@ -2,12 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const QuickSearchItem = () => {
   const [meals, setMeals] = useState([]);
-
   const navigate = useNavigate();
-
   const fetchMealsType = () => {
     axios
       .get("https://foodii-backend.onrender.com/getallmeal")
@@ -33,17 +30,16 @@ const QuickSearchItem = () => {
     <>
       {meals.map((item) => {
         return (
-          <div data-aos="fade-up"
-          data-aos-duration="1000"
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1000"
             className="col-xs-12 col-md-5 col-lg-3 shadow-lg p-2 mb-5  rounded"
             onClick={() => handleNavagateQs(item.meal_type)}
           >
             <img src={item.image} alt="breakfast" className="boximage" />
-            <span className="h4">{item.name}</span>
-            <br />
-            <br />
-            <p>{item.content}</p>
-            <p>{item.meal_type}</p>
+            <div className="menu-name">{item.name}</div>
+            <div className="menu-list">{item.content}</div>
+            <div className="menu-list-meal">{item.meal_type}</div>
           </div>
         );
       })}

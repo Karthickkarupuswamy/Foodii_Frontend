@@ -1,14 +1,16 @@
-body{
+body {
     margin: 0%;
     font-family: 'Poppins', sans-serif;
 }
-.content{
+
+.content {
     position: absolute;
     top: 80px;
     width: 100%;
     text-align: center;
 }
-.logo{
+
+.logo {
     width: 60px;
     height: 60px;
     border: 1px solid black;
@@ -23,7 +25,7 @@ body{
     cursor: pointer;
 }
 
-.boximage{
+.boximage {
     width: 140px;
     height: 200px;
     float: left;
@@ -31,7 +33,7 @@ body{
     margin-right: 10px;
 }
 
-.searchresult{
+.searchresult {
     width: 30%;
     box-sizing: border-box;
     border: 1px solid rgb(198, 54, 54);
@@ -42,11 +44,58 @@ body{
     color: black;
     margin: 2% 52%;
     padding: 8px;
-    padding-right: 100px;   
+    padding-right: 100px;
 }
 
-.lgfont{
+.lgfont {
     color: coral;
     font-family: 'Poppins', sans-serif;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.menu-name {
+    font-size: 22px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    padding: 0px 0px 20px 0px;
+}
+
+.menu-list {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    padding-bottom: 10px;
+}
+
+.menu-list-meal {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+}
+
+.Searchbox input {
+    width: 230px;
+    height: 36px;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+}
+
+.dropdown {
+    width: 200px;
+    height: 36px;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
 }

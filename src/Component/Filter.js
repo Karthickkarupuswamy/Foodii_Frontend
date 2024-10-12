@@ -6,9 +6,7 @@ import axios from "axios";
 const Filter = () => {
   const navgivate = useNavigate();
   const location = useLocation();
-
   const [locationData, setLocationData] = useState([]);
-
   const [restaurants, setRestaurants] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const restaurantsPerPage = 2;
@@ -16,10 +14,8 @@ const Filter = () => {
   const [cusineid, setCuisineid] = useState([]);
   const [lcost, setLcost] = useState(undefined);
   const [hcost, setHcost] = useState(undefined);
-
   const qs = new URLSearchParams(location.search);
   const mealtype_id = qs.get("meal_type");
-  //console.log(qsId, "qsId"); // To check the id for meal type id from the Url params
   const location_id = Number(sessionStorage.getItem("locationID"));
   useEffect(() => {
     axios
@@ -104,7 +100,6 @@ const Filter = () => {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-
   const indexOfLastRestaurant = currentPage * restaurantsPerPage;
   const indexOfFirstRestaurant = indexOfLastRestaurant - restaurantsPerPage;
   const length = Math.ceil(restaurants.length / restaurantsPerPage);
@@ -112,7 +107,6 @@ const Filter = () => {
     restaurants.length > 0
       ? restaurants.slice(indexOfFirstRestaurant, indexOfLastRestaurant)
       : 0;
-
   const handleDetail = (e) => {
     navgivate(`/detail?resturant=${e._id}`);
   };
@@ -125,7 +119,7 @@ const Filter = () => {
         </div>
         <div className="col-xs-11 box1">
           <h2>Filters</h2>
-          <h3>select Location</h3>
+          <div className="filter-title-list">Select Location</div>
           <select className="location" onChange={searchHandle}>
             <option selected disabled>
               --Select City--
@@ -138,94 +132,115 @@ const Filter = () => {
               );
             })}
           </select>
-          <br />
-          <br />
-          <h3>Cuisine</h3>
-          <input type="checkbox" onChange={() => handleCuisine(2)} />
-          South Indian
-          <br />
-          <input type="checkbox" onChange={() => handleCuisine(1)} />
-          North Indian
-          <br />
-          <input type="checkbox" onChange={() => handleCuisine(3)} />
-          Chinese
-          <br />
-          <input type="checkbox" onChange={() => handleCuisine(4)} />
-          Fast Food
-          <br />
-          <input type="checkbox" onChange={() => handleCuisine(5)} />
-          Street Food
-          <br />
-          <br />
-          <h3>Cost For Two</h3>
-          <input type="radio" name="cost" onChange={() => handleCost(0, 500)} />
-          Less than $500😍
-          <br />
-          <input
-            type="radio"
-            name="cost"
-            onChange={() => handleCost(500, 1000)}
-          />
-          $500 to $1000
-          <br />
-          <input
-            type="radio"
-            name="cost"
-            onChange={() => handleCost(1000, 1500)}
-            className="ggg"
-          />
-          $1000 to $1500
-          <br />
-          <input
-            type="radio"
-            name="cost"
-            onChange={() => handleCost(1500, 2000)}
-          />
-          $1500 to $2000
-          <br />
-          <input
-            type="radio"
-            name="cost"
-            onChange={() => handleCost(2000, 50000)}
-          />
-          $2000+
-          <br />
-          <br />
-          <h3>Sort By</h3>
-          <input type="radio" name="sort" value={1} onClick={searchSort} />
-          Price low to High😁
-          <br />
-          <input type="radio" name="sort" value={-1} onClick={searchSort} />
-          High to Low🙄
-          <br />
-          <br />
+          <div className="filter-title-list">Cuisine</div>
+          <div>
+            <input type="checkbox" onChange={() => handleCuisine(2)} /> South
+            Indian
+          </div>
+          <div>
+            <input type="checkbox" onChange={() => handleCuisine(1)} /> North
+            Indian
+          </div>
+          <div>
+            <input type="checkbox" onChange={() => handleCuisine(3)} /> Chinese
+          </div>
+          <div>
+            <input type="checkbox" onChange={() => handleCuisine(4)} /> Fast
+            Food
+          </div>
+          <div>
+            <input type="checkbox" onChange={() => handleCuisine(5)} /> Street
+            Food
+          </div>
+          <div className="filter-title-list">Cost For Two</div>
+          <div>
+            <input
+              type="radio"
+              name="cost"
+              onChange={() => handleCost(0, 500)}
+              style={{ marginRight: "4px" }}
+            />
+            Less than $500😍
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="cost"
+              onChange={() => handleCost(500, 1000)}
+              style={{ marginRight: "4px" }}
+            />
+            $500 to $1000
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="cost"
+              onChange={() => handleCost(1000, 1500)}
+              style={{ marginRight: "4px" }}
+            />
+            $1000 to $1500
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="cost"
+              onChange={() => handleCost(1500, 2000)}
+              style={{ marginRight: "4px" }}
+            />
+            $1500 to $2000
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="cost"
+              onChange={() => handleCost(2000, 50000)}
+              style={{ marginRight: "4px" }}
+            />
+            $2000+
+          </div>
+          <div className="filter-title-list">Sort By</div>
+          <div>
+            <input
+              type="radio"
+              name="sort"
+              value={1}
+              onClick={searchSort}
+              style={{ marginRight: "4px" }}
+            />
+            Price low to High😁
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="sort"
+              value={-1}
+              onClick={searchSort}
+              style={{ marginRight: "4px" }}
+            />
+            High to Low🙄
+          </div>
         </div>
-        <div className="d-flex flex-column mt-5 mx-4 px-3">
+        <div className="filter-box-container">
           {currentRestaurants.length > 0 ? (
             currentRestaurants.map((e) => {
               return (
-                <div className="box2 my-4 " onClick={() => handleDetail(e)}>
+                <div className="box2" onClick={() => handleDetail(e)}>
                   <img src="./Assets/img2.jpg" alt="image" className="img1" />
-                  <div className="b2H">
-                    <h2>{e.name}</h2>
-                    <h4>{e.locality}</h4>
-                    <h5>{e.city}</h5>
+                  <div className="">
+                    <div className="filter-hotel">{e.name}</div>
+                    <div className="filter-location">{e.locality}</div>
+                    <div className="filter-city">{e.city}</div>
                   </div>
-                  <hr width="90%" height="6px" color="black" />
-                  <div className="b2B">
-                    <span>cuisine </span>
-                    <span>
-                      <b>
-                        {" "}
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp;&nbsp;:{e.cuisine.map((a) => a.name)}
-                      </b>
-                    </span>
-                    <br />
-                    <span>cost for two </span>
-                    <span>
-                      <b> &nbsp; &nbsp; &nbsp; &nbsp; :{e.min_price}</b>
-                    </span>
+                  <hr />
+                  <div className="d-flex">
+                    <div className="food-list">Cuisine</div>
+                    <div className="food-price-list">
+                      {e.cuisine.map((a) => a.name)}
+                    </div>
+                  </div>
+                  <div className="d-flex">
+                    <div className="food-list">Cost of</div>
+                    <div className="food-price-list">{e.min_price}</div>
                   </div>
                 </div>
               );
@@ -234,9 +249,8 @@ const Filter = () => {
             <h1 style={{ color: "red" }}>No Result Found...</h1>
           )}
         </div>
-
         {restaurants.length > 0 ? (
-          <div className="btn-group box4 mx-4">
+          <div className="btn-group box4">
             {Array.from({ length }).map((_, index) => (
               <p
                 key={index}

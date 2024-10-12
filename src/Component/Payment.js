@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Payment = (props) => {
   const [total, setTotal] = useState(props.amount);
-
+  const navigate = useNavigate();
   const handlePay = (e) => {
     e.preventDefault();
     if (total === "") {
@@ -34,15 +35,29 @@ const Payment = (props) => {
       pay.open();
     }
   };
+  const handleNavigate = () => {
+    navigate("/");
+    window.location.reload();
+  };
 
   return (
-    <div>
-      <p className="h1 text-center" style={{ color: '#2B7A0B' }}>Verified payment and continuing</p>
-      <h1 value={total} onChange={(e) => setTotal(e.target.value)}>
+    <div style={{ height: "auto" }}>
+      <div className="pament-title">Verified payment and continuing</div>
+      <div
+        className="value-amount"
+        value={total}
+        onChange={(e) => setTotal(e.target.value)}
+      >
         {props.amount}
-      </h1>
-      <br /> <br />
-      <button onClick={handlePay}>Pay</button>
+      </div>
+      <div>
+        <button className="cancel-button-order" onClick={handleNavigate}>
+          Cancel
+        </button>
+        <button className="pay-button" onClick={handlePay}>
+          Pay
+        </button>
+      </div>
     </div>
   );
 };
