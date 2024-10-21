@@ -6,6 +6,7 @@ import "react-tabs/style/react-tabs.css";
 import Modal from "react-modal";
 import Payment from "./Payment";
 import { useNavigate } from "react-router-dom";
+import "../Styles/Filter.css";
 
 const customStyles = {
   content: {
@@ -109,7 +110,7 @@ const Detials1 = () => {
                   <span>locality :</span> {restaurant.locality}
                 </div>
                 <div className="detials-list-data">
-                  <span>min_price : $</span>
+                  <span>Min_price : &#8377; </span>
                   {restaurant.min_price}
                 </div>
                 <div className="order-buttion-section">
@@ -154,47 +155,41 @@ const Detials1 = () => {
         {menu.map((e) => {
           return (
             <div>
-              <h1 className="fw-bold">{e.name.toUpperCase()}</h1>
+              <div className="detial-title">{e.name.toUpperCase()}</div>
               <hr />
               {e.menu.map((a, index) => (
-                <div>
-                  <span
-                    className="d-flex justify-content-between p-2"
-                    key={index}
-                  >
-                    <p className=" fst-italic">
-                      <h3 className="fw-bold">{a.item}</h3>
-                      {a.desc}
-                    </p>
-                    <div
-                      className="d-flex justify-content-evenly px-4"
-                      style={{ width: "180px", border: "none" }}
+                <div className="row mb-4" key={index}>
+                  <div className="detial-name col-md-6">{a.item}</div>
+                  <div class="col-md-4 detials-button-section">
+                    <button
+                      className="detials-button-add"
+                      onClick={() => handleDecrement(a, index)}
                     >
-                      <button
-                        className="btn btn-outline-warning fs-6 fw-bold"
-                        onClick={() => handleDecrement(a, index)}
-                      >
-                        -
-                      </button>
-                      <button className="fw-bold fs-6 text-center btn btn-outline-success">
-                        {count[index] || 0}
-                      </button>
-                      <button
-                        className="btn btn-outline-warning fs-6 fw-bold"
-                        onClick={() => handleIncrement(a, index)}
-                      >
-                        +
-                      </button>
-                    </div>
-                    <h4 className="py-3" style={{ color: "rgb(255, 69, 0)" }}>
-                      &#8377; {a.amount}
-                    </h4>
-                  </span>
+                      -
+                    </button>
+                    <button className="button-count">
+                      {count[index] || 0}
+                    </button>
+                    <button
+                      className="detials-button-add"
+                      onClick={() => handleIncrement(a, index)}
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div
+                    className="detial-price col-md-2"
+                    style={{ textAlign: "end" }}
+                  >
+                    &#8377; {a.amount}
+                  </div>
                 </div>
               ))}
               <hr />
-              <h2 className="px-3 py-1">SubTotal: &#8377; {quantity || 0}</h2>
-              <div className="d-flex justify-content-end ">
+              <div className="detial-subtotal">
+                SubTotal: &#8377; {quantity || 0}
+              </div>
+              <div className="d-flex justify-content-end">
                 <button
                   className="cancel-button-order"
                   onClick={handleNavigate}

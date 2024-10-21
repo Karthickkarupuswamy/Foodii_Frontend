@@ -115,6 +115,13 @@ body {
     width: 700px;
     padding-bottom: 10px;
     margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box2:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
 .box3 {
@@ -131,6 +138,7 @@ body {
     padding: 20px;
     justify-content: center;
     width: 700px;
+    margin-left: 35px;
 }
 
 .detialsimg {
@@ -154,6 +162,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 10px 15px;
+    margin-left: 20px;
 }
 
 .page-item {
@@ -286,6 +295,68 @@ hr {
     color: #FFFFFF;
     border: none;
     border-radius: 5px;
+}
+
+
+.detial-title {
+    font-size: 30px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+}
+
+.detial-name {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    text-align: left;
+}
+
+.detial-price {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    color: #FE0000;
+}
+
+.detials-button-add {
+    width: 50px;
+    height: 40px;
+    background-color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.button-count {
+    width: 50px;
+    height: 40px;
+    background-color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #FE0000;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.detials-button-section {
+    display: flex;
+    gap: 10px;
+}
+
+.detial-subtotal {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    margin: 0px 10px 15px 0px;
+    display: flex;
+    justify-content: end;
 }
 
 @media (max-width:500px) {

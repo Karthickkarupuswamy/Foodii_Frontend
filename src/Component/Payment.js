@@ -18,6 +18,7 @@ const Payment = (props) => {
         descripation: "for testing",
         handler: (response) => {
           alert(response.razorpay_payment_id);
+          navigate("/");
         },
         prefill: {
           name: "Karthick",

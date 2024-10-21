@@ -160,7 +160,7 @@ const Filter = () => {
               onChange={() => handleCost(0, 500)}
               style={{ marginRight: "4px" }}
             />
-            Less than $500😍
+            Less than &#8377;500😍
           </div>
           <div>
             <input
@@ -169,7 +169,7 @@ const Filter = () => {
               onChange={() => handleCost(500, 1000)}
               style={{ marginRight: "4px" }}
             />
-            $500 to $1000
+            &#8377;500 to &#8377;1000
           </div>
           <div>
             <input
@@ -178,7 +178,7 @@ const Filter = () => {
               onChange={() => handleCost(1000, 1500)}
               style={{ marginRight: "4px" }}
             />
-            $1000 to $1500
+            &#8377;1000 to &#8377;1500
           </div>
           <div>
             <input
@@ -187,7 +187,7 @@ const Filter = () => {
               onChange={() => handleCost(1500, 2000)}
               style={{ marginRight: "4px" }}
             />
-            $1500 to $2000
+            &#8377;1500 to &#8377;2000
           </div>
           <div>
             <input
@@ -196,7 +196,7 @@ const Filter = () => {
               onChange={() => handleCost(2000, 50000)}
               style={{ marginRight: "4px" }}
             />
-            $2000+
+            &#8377;2000+
           </div>
           <div className="filter-title-list">Sort By</div>
           <div>
@@ -226,19 +226,17 @@ const Filter = () => {
               return (
                 <div className="box2" onClick={() => handleDetail(e)}>
                   <img src="./Assets/img2.jpg" alt="image" className="img1" />
-                  <div className="">
-                    <div className="filter-hotel">{e.name}</div>
-                    <div className="filter-location">{e.locality}</div>
-                    <div className="filter-city">{e.city}</div>
-                  </div>
+                  <div className="filter-hotel">{e.name}</div>
+                  <div className="filter-location">{e.locality}</div>
+                  <div className="filter-city">{e.city}</div>
                   <hr />
-                  <div className="d-flex">
+                  <div className="d-flex mx-1">
                     <div className="food-list">Cuisine</div>
                     <div className="food-price-list">
                       {e.cuisine.map((a) => a.name)}
                     </div>
                   </div>
-                  <div className="d-flex">
+                  <div className="d-flex  mx-1">
                     <div className="food-list">Cost of</div>
                     <div className="food-price-list">{e.min_price}</div>
                   </div>
